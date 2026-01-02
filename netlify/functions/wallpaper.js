@@ -56,7 +56,7 @@ function draw_wallpaper(today, year) {
     const x = (WIDTH - width) / 2 - xbearing;
     const y = 400 + 1400 + 400;
     ctx.lineWidth = 6;
-    ctx.strokeStyle = 'rgb(1,1,1)';
+    ctx.strokeStyle = 'rgb(255,255,255)';
     ctx.strokeText(text, x, y);
     ctx.fillStyle = 'rgb(180,180,180)';
     ctx.fillText(text, x, y);
