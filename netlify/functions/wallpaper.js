@@ -70,9 +70,9 @@ function draw_wallpaper(today, year) {
   const x = (WIDTH - width) / 2 - xbearing;
   const y = 400 + 1400 + 400;
   ctx.lineWidth = 6;
-  ctx.strokeStyle = 'rgb(255,255,255)';
+  ctx.strokeStyle = 'rgb(51,51,51)';
   ctx.strokeText(text, x, y);
-  ctx.fillStyle = 'rgb(180,180,180)';
+  ctx.fillStyle = 'rgb(200, 125, 35)';
   ctx.fillText(text, x, y);
   return canvas.toBuffer('image/png');
 }
