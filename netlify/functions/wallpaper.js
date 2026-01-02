@@ -1,13 +1,13 @@
+import { join } from 'path';
 import { createCanvas, GlobalFonts } from '@napi-rs/canvas';
-import path from 'path';
-import { fileURLToPath } from 'url';
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-GlobalFonts.registerFromPath(
-  path.join(__dirname, 'fonts/JetBrainsMono.ttf'),
-  'Inter'
-);
+// Register the font
+const fontPath = join(process.cwd(), 'fonts', 'JetBrainsMono.ttf');
+try {
+  GlobalFonts.registerFromPath(fontPath, 'JetBrains Mono');
+} catch (e) {
+  console.warn('Failed to register font:', e);
+}
 
 const WIDTH = 1179;
 const HEIGHT = 2556;
@@ -36,7 +36,7 @@ function draw_wallpaper(today, year) {
   const canvas = createCanvas(WIDTH, HEIGHT);
   const ctx = canvas.getContext('2d');
 
-  ctx.font = '64px Inter';
+  ctx.font = '64px "JetBrains Mono"';
   ctx.fillText('HELLO', WIDTH / 2, 2200);
 
   ctx.fillStyle = 'rgb(0,0,0)';
@@ -61,7 +61,7 @@ function draw_wallpaper(today, year) {
     }
   }
 
-  ctx.font = "bold 32px 'DejaVu Sans Mono','Liberation Mono',monospace";
+  ctx.font = 'bold 32px "JetBrains Mono"';
   ctx.textBaseline = 'alphabetic';
   const text = `${d - today} • ${Math.round((today / d) * 100)}%`;
   const m = ctx.measureText(text);
