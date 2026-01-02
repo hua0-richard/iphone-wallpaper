@@ -47,6 +47,8 @@ function draw_wallpaper(today, year) {
       ctx.arc(offsetX + 100, 800 + offsetY, 20, 0, 2 * Math.PI);
       ctx.fill();
     }
+  }
+
     ctx.font = "bold 32px 'DejaVu Sans Mono','Liberation Mono',monospace";
     ctx.textBaseline = 'alphabetic';
     const text = `${d - today} • ${Math.round((today / d) * 100)}%`;
@@ -60,8 +62,6 @@ function draw_wallpaper(today, year) {
     ctx.strokeText(text, x, y);
     ctx.fillStyle = 'rgb(180,180,180)';
     ctx.fillText(text, x, y);
-  }
-
   return canvas.toBuffer('image/png');
 }
 
