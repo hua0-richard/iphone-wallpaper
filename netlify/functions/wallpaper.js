@@ -1,7 +1,6 @@
 import { join } from 'path';
 import { createCanvas, GlobalFonts } from '@napi-rs/canvas';
 
-// Register the font
 const fontPath = join(process.cwd(), 'fonts', 'JetBrainsMono.ttf');
 try {
   GlobalFonts.registerFromPath(fontPath, 'JetBrains Mono');
@@ -39,7 +38,13 @@ function draw_wallpaper(today, year) {
   ctx.font = '64px "JetBrains Mono"';
   ctx.fillText('HELLO', WIDTH / 2, 2200);
 
-  ctx.fillStyle = 'rgb(0,0,0)';
+  // Color Palette
+  const BG_COLOR = 'rgb(17, 17, 17)';       // #111111
+  const PAST_COLOR = 'rgb(68, 68, 68)';     // #444444
+  const FUTURE_COLOR = 'rgb(34, 34, 34)';   // #222222
+  const ACCENT_COLOR = 'rgb(200, 125, 35)'; // User's Orange #C87D23
+
+  ctx.fillStyle = BG_COLOR;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   ctx.lineWidth = 4;
@@ -50,10 +55,10 @@ function draw_wallpaper(today, year) {
       const offsetY = i * 60;
       const idx = j + i * 17 + 1;
 
-      if (idx > d) ctx.fillStyle = 'rgb(0,0,0)';
-      else if (idx < today) ctx.fillStyle = 'rgb(204,204,204)';
-      else if (idx > today) ctx.fillStyle = 'rgb(51,51,51)';
-      else ctx.fillStyle = 'rgb(204,0,0)';
+      if (idx > d) ctx.fillStyle = BG_COLOR;
+      else if (idx < today) ctx.fillStyle = PAST_COLOR;
+      else if (idx > today) ctx.fillStyle = FUTURE_COLOR;
+      else ctx.fillStyle = ACCENT_COLOR;
 
       ctx.beginPath();
       ctx.arc(offsetX + 100, 800 + offsetY, 20, 0, 2 * Math.PI);
