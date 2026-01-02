@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>My Netlify Page</title>
+  <title>Year Progress Wallpaper</title>
 
   <!-- SEO -->
-  <meta name="description" content="A simple static page served on Netlify." />
+  <meta name="description" content="Dynamic wallpaper generator that visualizes the year's progress." />
 
   <!-- Favicon -->
   <link rel="icon" href="/favicon.ico" />
@@ -32,7 +33,7 @@
       background: var(--bg);
       color: var(--fg);
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                   Roboto, Helvetica, Arial, sans-serif;
+        Roboto, Helvetica, Arial, sans-serif;
     }
 
     main {
@@ -70,22 +71,70 @@
       color: var(--muted);
     }
   </style>
+
 </head>
+
 <body>
   <main>
-    <h1>Hello, Netlify 👋</h1>
+    <h1>Year Progress Wallpaper</h1>
     <p>
-      This is a simple static HTML page served directly from Netlify’s CDN.
-      No JavaScript, no build step, no cold starts.
+      Stay in sync with time. A dynamic wallpaper that visualizes the progress of the year, generated instantly.
     </p>
 
-    <p>
-      Edit <code>index.html</code>, deploy, and you’re live.
-    </p>
+    <div style="margin-top: 2rem;">
+      <label for="theme-select" style="display: block; margin-bottom: 0.5rem; color: var(--muted);">Select a Wallpaper
+        Theme:</label>
+      <select id="theme-select"
+        style="padding: 0.5rem; border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: var(--fg); border: 1px solid var(--muted); width: 100%;">
+        <option value="" disabled selected>Choose a theme...</option>
+        <option value="default">Default</option>
+        <option value="cyberpunk">Cyberpunk</option>
+        <option value="apple_silver">Apple Silver</option>
+        <option value="apple_space_gray">Apple Space Gray</option>
+        <option value="google_light">Google Light</option>
+        <option value="google_dark">Google Dark</option>
+        <option value="neo_minimal">Neo Minimal</option>
+        <option value="brutalist">Brutalist</option>
+        <option value="synthwave">Synthwave</option>
+        <option value="solarized_dark">Solarized Dark</option>
+        <option value="nord">Nord</option>
+        <option value="midnight_forest">Midnight Forest</option>
+      </select>
+    </div>
+
+    <script>
+      document.getElementById('theme-select').addEventListener('change', function (e) {
+        if (e.target.value) {
+          window.location.href = '/wallpaper?theme=' + e.target.value;
+        }
+      });
+    </script>
+
+    <div
+      style="margin-top: 3rem; text-align: left; background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+      <h2 style="margin-top: 0; font-size: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+        📱 Automate with iOS Shortcuts
+      </h2>
+      <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem;">
+        Updates your wallpaper automatically every day.
+      </p>
+      <ol style="padding-left: 1.25rem; margin-bottom: 0; font-size: 0.95rem; line-height: 1.6;">
+        <li style="margin-bottom: 0.5rem;">Open <strong>Shortcuts</strong> and tap <strong>+</strong> to create a new
+          one.</li>
+        <li style="margin-bottom: 0.5rem;">Add action: <strong>Get Contents of URL</strong>.</li>
+        <li style="margin-bottom: 0.5rem;">Paste the URL (select a theme above to copy the link).</li>
+        <li style="margin-bottom: 0.5rem;">Add action: <strong>Set Wallpaper</strong>. pass the <i>Contents of URL</i>
+          as the image.</li>
+        <li style="margin-bottom: 0.5rem;">Tap the arrow on "Set Wallpaper" and turn <strong>OFF</strong> "Show
+          Preview".</li>
+        <li>(Optional) Create an <strong>Automation</strong> to run this shortcut daily at sunrise!</li>
+      </ol>
+    </div>
 
     <footer>
-      © 2026 · Built fast, shipped faster
+      © 2026 · Year Progress Wallpaper
     </footer>
   </main>
 </body>
+
 </html>
