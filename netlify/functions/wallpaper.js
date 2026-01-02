@@ -27,6 +27,95 @@ const THEMES = {
     accent: 'rgb(0, 255, 255)', 
     textStroke: 'rgb(255, 0, 255)',
     textFill: 'rgb(0, 255, 255)'
+  },
+    apple_silver: {
+    bg: 'rgb(245, 245, 247)',
+    past: 'rgb(220, 220, 225)',
+    future: 'rgb(255, 255, 255)',
+    accent: 'rgb(0, 122, 255)',
+    textStroke: 'rgb(180, 180, 185)',
+    textFill: 'rgb(30, 30, 30)'
+  },
+
+  apple_space_gray: {
+    bg: 'rgb(28, 28, 30)',
+    past: 'rgb(45, 45, 50)',
+    future: 'rgb(20, 20, 22)',
+    accent: 'rgb(10, 132, 255)',
+    textStroke: 'rgb(90, 90, 95)',
+    textFill: 'rgb(235, 235, 240)'
+  },
+
+  google_light: {
+    bg: 'rgb(255, 255, 255)',
+    past: 'rgb(240, 240, 240)',
+    future: 'rgb(250, 250, 250)',
+    accent: 'rgb(66, 133, 244)',
+    textStroke: 'rgb(219, 68, 55)',
+    textFill: 'rgb(32, 33, 36)'
+  },
+
+  google_dark: {
+    bg: 'rgb(32, 33, 36)',
+    past: 'rgb(48, 49, 52)',
+    future: 'rgb(24, 25, 28)',
+    accent: 'rgb(138, 180, 248)',
+    textStroke: 'rgb(251, 188, 5)',
+    textFill: 'rgb(232, 234, 237)'
+  },
+
+  neo_minimal: {
+    bg: 'rgb(250, 250, 250)',
+    past: 'rgb(235, 235, 235)',
+    future: 'rgb(255, 255, 255)',
+    accent: 'rgb(0, 0, 0)',
+    textStroke: 'rgb(200, 200, 200)',
+    textFill: 'rgb(15, 15, 15)'
+  },
+
+  brutalist: {
+    bg: 'rgb(18, 18, 18)',
+    past: 'rgb(60, 60, 60)',
+    future: 'rgb(10, 10, 10)',
+    accent: 'rgb(255, 255, 0)',
+    textStroke: 'rgb(255, 255, 255)',
+    textFill: 'rgb(255, 255, 255)'
+  },
+
+  synthwave: {
+    bg: 'rgb(18, 10, 32)',
+    past: 'rgb(80, 20, 90)',
+    future: 'rgb(30, 10, 50)',
+    accent: 'rgb(255, 0, 200)',
+    textStroke: 'rgb(0, 255, 255)',
+    textFill: 'rgb(255, 120, 255)'
+  },
+
+  solarized_dark: {
+    bg: 'rgb(0, 43, 54)',
+    past: 'rgb(7, 54, 66)',
+    future: 'rgb(0, 33, 44)',
+    accent: 'rgb(38, 139, 210)',
+    textStroke: 'rgb(181, 137, 0)',
+    textFill: 'rgb(238, 232, 213)'
+  },
+
+  nord: {
+    bg: 'rgb(46, 52, 64)',
+    past: 'rgb(59, 66, 82)',
+    future: 'rgb(36, 41, 53)',
+    accent: 'rgb(136, 192, 208)',
+    textStroke: 'rgb(143, 188, 187)',
+    textFill: 'rgb(236, 239, 244)'
+  },
+
+  midnight_forest: {
+    bg: 'rgb(12, 18, 14)',
+    past: 'rgb(24, 40, 30)',
+    future: 'rgb(8, 12, 10)',
+    accent: 'rgb(80, 200, 120)',
+    textStroke: 'rgb(40, 120, 80)',
+    textFill: 'rgb(220, 240, 230)'
   }
 };
 
