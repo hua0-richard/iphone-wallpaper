@@ -6,3 +6,7 @@
   from = "/wallpaper"
   to = "/.netlify/functions/wallpaper"
   status = 200
+
+
+[[build]]
+  publish = "public"
