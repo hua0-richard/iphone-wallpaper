@@ -1,4 +1,14 @@
-import { createCanvas } from '@napi-rs/canvas';
+import { createCanvas, GlobalFonts } from '@napi-rs/canvas';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+GlobalFonts.registerFromPath(
+  path.join(__dirname, 'fonts/JetBrainsMono.ttf'),
+  'Inter'
+);
 
 const WIDTH = 1179;
 const HEIGHT = 2556;
@@ -27,6 +37,9 @@ function draw_wallpaper(today, year) {
   const canvas = createCanvas(WIDTH, HEIGHT);
   const ctx = canvas.getContext('2d');
 
+  ctx.font = '64px Inter';
+  ctx.fillText('HELLO', WIDTH / 2, 2200);
+
   ctx.fillStyle = 'rgb(0,0,0)';
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
@@ -49,19 +62,19 @@ function draw_wallpaper(today, year) {
     }
   }
 
-    ctx.font = "bold 32px 'DejaVu Sans Mono','Liberation Mono',monospace";
-    ctx.textBaseline = 'alphabetic';
-    const text = `${d - today} • ${Math.round((today / d) * 100)}%`;
-    const m = ctx.measureText(text);
-    const width = m.width;
-    const xbearing = -(m.actualBoundingBoxLeft ?? 0);
-    const x = (WIDTH - width) / 2 - xbearing;
-    const y = 400 + 1400 + 400;
-    ctx.lineWidth = 6;
-    ctx.strokeStyle = 'rgb(255,255,255)';
-    ctx.strokeText(text, x, y);
-    ctx.fillStyle = 'rgb(180,180,180)';
-    ctx.fillText(text, x, y);
+  ctx.font = "bold 32px 'DejaVu Sans Mono','Liberation Mono',monospace";
+  ctx.textBaseline = 'alphabetic';
+  const text = `${d - today} • ${Math.round((today / d) * 100)}%`;
+  const m = ctx.measureText(text);
+  const width = m.width;
+  const xbearing = -(m.actualBoundingBoxLeft ?? 0);
+  const x = (WIDTH - width) / 2 - xbearing;
+  const y = 400 + 1400 + 400;
+  ctx.lineWidth = 6;
+  ctx.strokeStyle = 'rgb(255,255,255)';
+  ctx.strokeText(text, x, y);
+  ctx.fillStyle = 'rgb(180,180,180)';
+  ctx.fillText(text, x, y);
   return canvas.toBuffer('image/png');
 }
 
