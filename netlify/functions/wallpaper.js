@@ -11,6 +11,25 @@ try {
 const WIDTH = 1179;
 const HEIGHT = 2556;
 
+const THEMES = {
+  default: {
+    bg: 'rgb(17, 17, 17)',       // Deep Charcoal
+    past: 'rgb(68, 68, 68)',     // Dim Gray
+    future: 'rgb(34, 34, 34)',   // Dark Gray
+    accent: 'rgb(200, 125, 35)', // Orange
+    textStroke: 'rgb(51, 51, 51)',
+    textFill: 'rgb(200, 125, 35)'
+  },
+  cyberpunk: {
+    bg: 'rgb(10, 10, 20)',       // Very Dark Blue
+    past: 'rgb(50, 20, 50)',     // Dark Purple/Pink
+    future: 'rgb(20, 20, 40)',   // Dark Blue
+    accent: 'rgb(0, 255, 255)',  // Cyan
+    textStroke: 'rgb(255, 0, 255)', // Magenta
+    textFill: 'rgb(0, 255, 255)'    // Cyan
+  }
+};
+
 function isLeapYear(year) {
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }
@@ -29,7 +48,7 @@ function day_of_year_local() {
   return Math.floor(diff / (1000 * 60 * 60 * 24));
 }
 
-function draw_wallpaper(today, year) {
+function draw_wallpaper(today, year, theme) {
   const d = days(year);
 
   const canvas = createCanvas(WIDTH, HEIGHT);
@@ -38,13 +57,10 @@ function draw_wallpaper(today, year) {
   ctx.font = '64px "JetBrains Mono"';
   ctx.fillText('HELLO', WIDTH / 2, 2200);
 
-  // Color Palette
-  const BG_COLOR = 'rgb(17, 17, 17)';       // #111111
-  const PAST_COLOR = 'rgb(68, 68, 68)';     // #444444
-  const FUTURE_COLOR = 'rgb(34, 34, 34)';   // #222222
-  const ACCENT_COLOR = 'rgb(200, 125, 35)'; // User's Orange #C87D23
+  // Apply Theme
+  const { bg, past, future, accent, textStroke, textFill } = theme;
 
-  ctx.fillStyle = BG_COLOR;
+  ctx.fillStyle = bg;
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   ctx.lineWidth = 4;
@@ -55,10 +71,10 @@ function draw_wallpaper(today, year) {
       const offsetY = i * 60;
       const idx = j + i * 17 + 1;
 
-      if (idx > d) ctx.fillStyle = BG_COLOR;
-      else if (idx < today) ctx.fillStyle = PAST_COLOR;
-      else if (idx > today) ctx.fillStyle = FUTURE_COLOR;
-      else ctx.fillStyle = ACCENT_COLOR;
+      if (idx > d) ctx.fillStyle = bg;
+      else if (idx < today) ctx.fillStyle = past;
+      else if (idx > today) ctx.fillStyle = future;
+      else ctx.fillStyle = accent;
 
       ctx.beginPath();
       ctx.arc(offsetX + 100, 800 + offsetY, 20, 0, 2 * Math.PI);
@@ -75,9 +91,9 @@ function draw_wallpaper(today, year) {
   const x = (WIDTH - width) / 2 - xbearing;
   const y = 400 + 1400 + 400;
   ctx.lineWidth = 6;
-  ctx.strokeStyle = 'rgb(51,51,51)';
+  ctx.strokeStyle = textStroke;
   ctx.strokeText(text, x, y);
-  ctx.fillStyle = 'rgb(200, 125, 35)';
+  ctx.fillStyle = textFill;
   ctx.fillText(text, x, y);
   return canvas.toBuffer('image/png');
 }
@@ -88,12 +104,18 @@ export async function handler(event) {
     const d = days(year);
 
     const qs = event.queryStringParameters || {};
+
+    // Day logic
     let today = qs.day ? parseInt(qs.day, 10) : day_of_year_local();
     if (!Number.isFinite(today)) today = day_of_year_local();
     if (today < 1) today = 1;
     if (today > d) today = d;
 
-    const png = draw_wallpaper(today, year);
+    // Theme logic
+    const themeName = (qs.theme || 'default').toLowerCase();
+    const theme = THEMES[themeName] || THEMES.default;
+
+    const png = draw_wallpaper(today, year, theme);
 
     return {
       statusCode: 200,
