@@ -13,20 +13,20 @@ const HEIGHT = 2556;
 
 const THEMES = {
   default: {
-    bg: 'rgb(17, 17, 17)',       // Deep Charcoal
-    past: 'rgb(68, 68, 68)',     // Dim Gray
-    future: 'rgb(34, 34, 34)',   // Dark Gray
-    accent: 'rgb(200, 125, 35)', // Orange
+    bg: 'rgb(17, 17, 17)',       
+    past: 'rgb(68, 68, 68)',     
+    future: 'rgb(34, 34, 34)',  
+    accent: 'rgb(200, 125, 35)', 
     textStroke: 'rgb(51, 51, 51)',
     textFill: 'rgb(200, 125, 35)'
   },
   cyberpunk: {
-    bg: 'rgb(10, 10, 20)',       // Very Dark Blue
-    past: 'rgb(50, 20, 50)',     // Dark Purple/Pink
-    future: 'rgb(20, 20, 40)',   // Dark Blue
-    accent: 'rgb(0, 255, 255)',  // Cyan
-    textStroke: 'rgb(255, 0, 255)', // Magenta
-    textFill: 'rgb(0, 255, 255)'    // Cyan
+    bg: 'rgb(10, 10, 20)',       
+    past: 'rgb(50, 20, 50)',    
+    future: 'rgb(20, 20, 40)',  
+    accent: 'rgb(0, 255, 255)', 
+    textStroke: 'rgb(255, 0, 255)',
+    textFill: 'rgb(0, 255, 255)'
   }
 };
 
