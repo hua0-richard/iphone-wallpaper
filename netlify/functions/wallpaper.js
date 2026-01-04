@@ -13,22 +13,22 @@ const HEIGHT = 2556;
 
 const THEMES = {
   default: {
-    bg: 'rgb(17, 17, 17)',       
-    past: 'rgb(68, 68, 68)',     
-    future: 'rgb(34, 34, 34)',  
-    accent: 'rgb(200, 125, 35)', 
+    bg: 'rgb(17, 17, 17)',
+    past: 'rgb(68, 68, 68)',
+    future: 'rgb(34, 34, 34)',
+    accent: 'rgb(200, 125, 35)',
     textStroke: 'rgb(51, 51, 51)',
     textFill: 'rgb(200, 125, 35)'
   },
   cyberpunk: {
-    bg: 'rgb(10, 10, 20)',       
-    past: 'rgb(50, 20, 50)',    
-    future: 'rgb(20, 20, 40)',  
-    accent: 'rgb(0, 255, 255)', 
+    bg: 'rgb(10, 10, 20)',
+    past: 'rgb(50, 20, 50)',
+    future: 'rgb(20, 20, 40)',
+    accent: 'rgb(0, 255, 255)',
     textStroke: 'rgb(255, 0, 255)',
     textFill: 'rgb(0, 255, 255)'
   },
-    apple_silver: {
+  apple_silver: {
     bg: 'rgb(245, 245, 247)',
     past: 'rgb(220, 220, 225)',
     future: 'rgb(255, 255, 255)',
@@ -116,6 +116,51 @@ const THEMES = {
     accent: 'rgb(80, 200, 120)',
     textStroke: 'rgb(40, 120, 80)',
     textFill: 'rgb(220, 240, 230)'
+  },
+
+  dracula: {
+    bg: 'rgb(40, 42, 54)',
+    past: 'rgb(68, 71, 90)',
+    future: 'rgb(98, 114, 164)',
+    accent: 'rgb(255, 121, 198)',
+    textStroke: 'rgb(189, 147, 249)',
+    textFill: 'rgb(248, 248, 242)'
+  },
+
+  monokai: {
+    bg: 'rgb(39, 40, 34)',
+    past: 'rgb(117, 113, 94)',
+    future: 'rgb(62, 61, 50)',
+    accent: 'rgb(249, 38, 114)',
+    textStroke: 'rgb(166, 226, 46)',
+    textFill: 'rgb(248, 248, 242)'
+  },
+
+  tokyo_night: {
+    bg: 'rgb(26, 27, 38)',
+    past: 'rgb(86, 95, 137)',
+    future: 'rgb(36, 40, 59)',
+    accent: 'rgb(122, 162, 247)',
+    textStroke: 'rgb(187, 154, 247)',
+    textFill: 'rgb(192, 202, 245)'
+  },
+
+  gruvbox_dark: {
+    bg: 'rgb(40, 40, 40)',
+    past: 'rgb(146, 131, 116)',
+    future: 'rgb(60, 56, 54)',
+    accent: 'rgb(250, 189, 47)',
+    textStroke: 'rgb(254, 128, 25)',
+    textFill: 'rgb(235, 219, 178)'
+  },
+
+  catppuccin_mocha: {
+    bg: 'rgb(30, 30, 46)',
+    past: 'rgb(88, 91, 112)',
+    future: 'rgb(49, 50, 68)',
+    accent: 'rgb(203, 166, 247)',
+    textStroke: 'rgb(137, 180, 250)',
+    textFill: 'rgb(205, 214, 244)'
   }
 };
 
