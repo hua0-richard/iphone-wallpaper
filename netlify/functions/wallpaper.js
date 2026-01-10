@@ -161,6 +161,33 @@ const THEMES = {
     accent: 'rgb(203, 166, 247)',
     textStroke: 'rgb(137, 180, 250)',
     textFill: 'rgb(205, 214, 244)'
+  },
+
+  omarchy_archriot: {
+    bg: 'rgb(26, 27, 38)',
+    past: 'rgb(34, 36, 54)',
+    future: 'rgb(21, 22, 30)',
+    accent: 'rgb(187, 154, 247)',
+    textStroke: 'rgb(125, 166, 255)',
+    textFill: 'rgb(255, 255, 255)'
+  },
+
+  omarchy_sapphire: {
+    bg: 'rgb(10, 20, 41)',
+    past: 'rgb(81, 104, 142)',
+    future: 'rgb(5, 10, 20)',
+    accent: 'rgb(100, 136, 234)',
+    textStroke: 'rgb(129, 159, 238)',
+    textFill: 'rgb(224, 247, 250)'
+  },
+
+  omarchy_sakura: {
+    bg: 'rgb(35, 24, 27)',
+    past: 'rgb(61, 43, 48)',
+    future: 'rgb(26, 17, 20)',
+    accent: 'rgb(255, 183, 178)',
+    textStroke: 'rgb(255, 215, 0)',
+    textFill: 'rgb(255, 240, 245)'
   }
 };
 
